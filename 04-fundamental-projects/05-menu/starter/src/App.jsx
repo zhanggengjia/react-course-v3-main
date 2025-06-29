@@ -18,7 +18,6 @@ const App = () => {
     } else {
       setShowItems(menu.filter((item) => item.category === selectItem))
     }
-
   }
 
   return (
