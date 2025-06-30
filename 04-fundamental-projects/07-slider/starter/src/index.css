@@ -353,3 +353,39 @@ ul {
 .next-slide {
   transform: translateX(100%);
 }
+
+/* ========================= Slick Carousel ======================== */
+
+.slick-container {
+  margin: 0 auto;
+  margin-top: 10rem;
+  width: 80vw;
+  max-width: 800px;
+  text-align: center;
+}
+
+.slick-slide img {
+  display: inline-block;
+}
+
+.slick-prev::before {
+  color: var(--primary-500) !important;
+  transition: var(--transition);
+}
+
+.slick-next::before {
+  color: var(--primary-500) !important;
+  transition: var(--transition);
+}
+
+@media screen and (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  }
+  .slick-prev::before,
+  .slick-next::before {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+}
