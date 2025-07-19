@@ -275,8 +275,8 @@ ul {
   margin-top: 1rem;
 }
 
-/* 
-============= 
+/*
+=============
 PROJECT CSS
 =============
 */
@@ -284,6 +284,7 @@ PROJECT CSS
 body {
   background: var(--grey-200);
 }
+
 .hero {
   min-height: 40vh;
   background: var(--white);
@@ -292,22 +293,27 @@ body {
   justify-content: center;
   padding: 5rem;
 }
+
 .img-container {
   display: none;
 }
+
 .hero-center {
   width: 90vw;
   max-width: var(--max-width);
 }
+
 .hero-title h1 {
   margin-bottom: 2rem;
   font-weight: 700;
 }
+
 .hero-title p {
   line-height: 2;
   max-width: 35em;
   color: var(--grey-600);
 }
+
 @media (min-width: 992px) {
   .hero-center {
     display: grid;
@@ -315,19 +321,16 @@ body {
     place-items: center;
     gap: 4rem;
   }
+
   .img-container {
     display: block;
   }
 }
-/* 
-============= 
-PROJECTS 
-=============
-*/
 
 .projects {
   padding: 5rem 0;
 }
+
 .projects-center {
   width: 90vw;
   max-width: var(--max-width);
@@ -336,22 +339,24 @@ PROJECTS
   display: grid;
   gap: 2rem;
 }
+
 .project {
   background: var(--white);
   display: block;
   border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
   transition: var(--transition);
 }
+
 .project:hover {
   transform: scale(1.05);
   box-shadow: var(--shadow-4);
 }
 
-.project .img {
+.project img {
   height: 15rem;
-  border-top-right-radius: var(--borderRadius);
   border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
 }
 
 .project h5 {
@@ -365,6 +370,7 @@ PROJECTS
     grid-template-columns: 1fr 1fr;
   }
 }
+
 @media (min-width: 992px) {
   .projects-center {
     grid-template-columns: 1fr 1fr 1fr;
