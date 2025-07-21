@@ -12,7 +12,7 @@ const HomeLayout = () => {
         {isPageLoading ? (
           <div className="loading"></div>
         ) : (
-          <Outlet context={{ value }} />
+          <Outlet context={{ value }} /> //pass value in child component, CocktailCard
         )}
       </section>
     </>

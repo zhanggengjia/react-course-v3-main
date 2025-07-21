@@ -4,7 +4,7 @@ import Wrapper from "../assets/wrappers/CocktailCard";
 const CocktailCard = (props) => {
   const { image, name, id, info, glass } = props;
 
-  const data = useOutletContext();
+  const data = useOutletContext(); //Get context data from HomeLayout.jsx
   // console.log(data)
   return (
     <Wrapper>
