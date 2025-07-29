@@ -1,12 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import cartItems from '../../cartItems';
+import axios from 'axios';
+
+const url = 'https://www.course-api.com/react-useReducer-cart-project';
 
 const initialState = {
-  cartItems: cartItems,
+  cartItems: [], //cartItems
   amount: 1,
   total: 0,
   isLoading: true,
 };
+
+export const getCartItems = createAsyncThunk(
+  'cart/getCartItems',
+  async (testingData, thunkAPI) => {
+    try {
+      // console.log(testingData); // param coming from App.jsx
+      // console.log(thunkAPI); // see whole feature of thunkAPI
+      // console.log(thunkAPI.getState()); // see redux state
+      // thunkAPI.dispatch(openModal()); // can also control action
+      const resp = await axios.get(url);
+      return resp.data;
+    } catch (error) {
+      console.log('something wrong');
+      console.log(error.response?.status);
+      return thunkAPI.rejectWithValue('something went wrong'); // text will be stored in the action payload of getCartItems.rejected
+    }
+  }
+);
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -37,6 +58,21 @@ const cartSlice = createSlice({
       state.amount = amount;
       state.total = total;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCartItems.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getCartItems.fulfilled, (state, action) => {
+        console.log(action);
+        state.isLoading = false;
+        state.cartItems = action.payload;
+      })
+      .addCase(getCartItems.rejected, (state, action) => {
+        console.log(action);
+        state.isLoading = false;
+      });
   },
 });
 
