@@ -1,15 +1,14 @@
 import { About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct } from './pages';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './App.css';
+import { ErrorElement } from './components';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5,
-    }
-  }
-});
+// loaders
+import { loader as landingLoader } from './pages/Landing';
+import { loader as singleProductLoader } from './pages/SingleProduct';
+import { loader as productsLoader } from './pages/Products';
+
+// actions
 
 const router = createBrowserRouter([
   {
@@ -20,14 +19,20 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+        errorElement: <ErrorElement />,
+        loader: landingLoader,
       },
       {
         path: 'products',
-        element: <Products />
+        element: <Products />,
+        errorElement: <ErrorElement />,
+        loader: productsLoader,
       },
       {
         path: 'products/:id',
-        element: <SingleProduct />
+        element: <SingleProduct />,
+        errorElement: <ErrorElement />,
+        loader: singleProductLoader,
       },
       {
         path: 'cart',
@@ -59,6 +64,13 @@ const router = createBrowserRouter([
   }
 ])
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    }
+  }
+});
 
 function App() {
   return (

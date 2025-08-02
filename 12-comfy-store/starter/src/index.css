@@ -1,3 +1,9 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, dracula;
+}
+
+/* components whose style is using tailwindcss should be placed after tailwindcss */
 @layer components {
   .align-element {
     @apply mx-auto max-w-6xl px-8;

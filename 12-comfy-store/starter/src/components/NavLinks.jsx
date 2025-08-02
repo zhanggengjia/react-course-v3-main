@@ -10,7 +10,7 @@ const links = [
 ];
 
 
-const NavLinks = () => {
+const NavLinks = ({ theme }) => {
   return (
     <>
       {links.map((link) => {
@@ -19,8 +19,8 @@ const NavLinks = () => {
           <li key={id}>
             <NavLink className={({ isActive }) =>
               [
-                'btn btn-ghost normal-case',   // DaisyUI 的按鈕樣式
-                isActive ? 'btn-active' : ''   // 當前路由時套反色
+                'btn btn-ghost capitalize',   // DaisyUI 的按鈕樣式
+                isActive ? (theme ? ('btn-active bg-gray-600') : ('btn-active bg-gray-300')) : ('')   // 當前路由時套反色
               ].join(' ')
             } to={url}>
               {text}
