@@ -20,7 +20,7 @@ const isDarkTheme = (theme) => {
 const theme = getThemeFromLocalStorage();
 
 const initialState = {
-  user: { username: 'kevin is the best' },
+  user: { username: 'init kevin' },
   theme,
   isDark: isDarkTheme(theme),
 };
@@ -33,7 +33,9 @@ const userSlice = createSlice({
       console.log('login');
     },
     logoutUser: (state) => {
-      console.log('logout');
+      state.user = null;
+      localStorage.removeItem('user');
+      toast.success('Logged out successfully');
     },
     toggleTheme: (state) => {
       const { dracula, winter } = themes;
