@@ -20,6 +20,8 @@ const Error = () => {
         </div>
       </main>
     );
+  } else {
+    console.error(error)
   }
 
   return (
