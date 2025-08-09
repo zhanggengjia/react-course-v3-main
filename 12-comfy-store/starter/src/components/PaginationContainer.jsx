@@ -1,7 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom"
+import { allProductsQuery } from "../pages/Products";
 
 const PaginationContainer = () => {
-  const { meta } = useLoaderData();
+  const { params } = useLoaderData();
+  const { data: resp } = useQuery(allProductsQuery(params));
+  const products = resp?.data?.data ?? [];
+  const meta = resp?.data?.meta;
+  // const { meta } = useLoaderData();
   const { pageCount, page } = meta.pagination;
 
   const pages = Array.from({ length: pageCount }, (_, index) => {

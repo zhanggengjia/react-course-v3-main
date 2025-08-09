@@ -3,12 +3,12 @@ import { useLoaderData } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../utils';
 
-const ProductsList = () => {
-  const { products } = useLoaderData();
+const ProductsList = ({ products }) => {
+  // const { products } = useLoaderData();
 
   return (
     <div className='mt-12 grid gap-y-8'>
-      {products.map((product) => {
+      {(Array.isArray(products) ? products : []).map((product) => {
         const { title, price, image, company } = product.attributes;
         const dollarsAmount = formatPrice(price);
         return (

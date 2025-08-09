@@ -3,9 +3,15 @@ import FormInput from './FormInput';
 import FormSelect from './FormSelect';
 import FormRange from './FormRange';
 import FormCheckbox from './FormCheckbox';
+import { useQuery } from '@tanstack/react-query';
+import { allProductsQuery } from '../pages/Products';
 
 const Filters = () => {
-  const { meta, params } = useLoaderData();
+  const { params } = useLoaderData();
+  const { data: resp } = useQuery(allProductsQuery(params));
+  const meta = resp?.data?.meta;
+
+  // const { meta, params } = useLoaderData();
   const { search, company, category, shipping, order, price } = params
   return (
     <Form className='bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>

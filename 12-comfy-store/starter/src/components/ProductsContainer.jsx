@@ -3,10 +3,19 @@ import ProductsGrid from './ProductsGrid';
 import ProductsList from './ProductsList';
 import { useState } from 'react';
 import { BsFillGridFill, BsList } from 'react-icons/bs';
+import { allProductsQuery } from '../pages/Products';
+import { useQuery } from '@tanstack/react-query';
+
 
 const ProductsContainer = () => {
-  const { meta } = useLoaderData();
-  const totalProducts = meta.pagination.total;
+  const { params } = useLoaderData();
+  const { data: resp } = useQuery(allProductsQuery(params));
+  const products = resp?.data?.data ?? [];
+  const meta = resp?.data?.meta;
+
+  // const { meta } = useLoaderData();
+  // const totalProducts = meta.pagination.total;
+  const totalProducts = meta?.pagination?.total ?? 0;
 
   const [layout, setLayout] = useState('grid');
 
@@ -37,9 +46,9 @@ const ProductsContainer = () => {
           Sorry, no products matched your search...
         </h5>
       ) : layout === 'grid' ? (
-        <ProductsGrid />
+        <ProductsGrid products={products} />
       ) : (
-        <ProductsList />
+        <ProductsList products={products} />
       )}
     </>
   )
