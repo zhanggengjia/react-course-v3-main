@@ -3,8 +3,8 @@ import ProjectsCard from "./ProjectsCard"
 import SectionTitle from "./SectionTitle"
 import { useFetchProjects } from './fetchProjects'
 
-const Projects = () => {
-  const { loading, projects } = useFetchProjects('projects');
+const MainProjects = () => {
+  const { loading, projects } = useFetchProjects('mainProjects');
 
   if (loading) {
     return (
@@ -15,7 +15,7 @@ const Projects = () => {
   }
 
   return (
-    <section className="py-20 align-element" id="practices">
+    <section className="py-20 align-element" id="projects">
       <SectionTitle text='web creations' />
       <div className="py-16 grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {projects.map((project) => {
@@ -27,4 +27,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default MainProjects
