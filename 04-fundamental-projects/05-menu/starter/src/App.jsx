@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import menu from "./data";
 import Product from "./Product";
 const App = () => {
-
   const [categories, setCategories] = useState([]);
   const [showItems, setShowItems] = useState(menu);
 
