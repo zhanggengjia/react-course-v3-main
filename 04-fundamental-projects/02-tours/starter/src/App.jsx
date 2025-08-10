@@ -6,7 +6,7 @@ const App = () => {
   return (
     <main>
       <div className='container'>
-        <h2 className="title">Our Tours</h2>
+        <h2 className="title">Kevin's Tours</h2>
         <div className="title-underline"></div>
         <List url={url} />
       </div>

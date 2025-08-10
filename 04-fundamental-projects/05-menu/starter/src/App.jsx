@@ -22,7 +22,7 @@ const App = () => {
   return (
     <main>
       <div className="menu">
-        <h1 className="title">Menu</h1>
+        <h1 className="title">Kevin's Menu</h1>
         <div className="title-underline"></div>
         <div className="btn-container">
           {categories.map((category, id) => (
