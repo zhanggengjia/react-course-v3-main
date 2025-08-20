@@ -1,7 +1,9 @@
+import Component from './starter/05-challenge';
 function App() {
   return (
     <main>
-      <h2>React & Typescript</h2>
+      <Component type="advanced" name="kevin" email="kevin@gmail.com" />
+      <Component type="basic" name="kevin" />
     </main>
   );
 }
