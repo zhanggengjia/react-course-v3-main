@@ -1,3 +1,14 @@
+npm i -D tailwindcss@^4 @tailwindcss/postcss autoprefixer
+
+npx shadcn-ui@latest add breadcrumb card checkbox dropdown-menu input label popover select separator table textarea sonner skeleton carousel
+
+npm i react-icons
+npm i install next-themes
+
+npm install prisma --save-dev
+npm install @prisma/client
+npx prisma init
+
 ### Next App
 
 ```sh
@@ -20,8 +31,6 @@ function HomePage() {
 }
 export default HomePage;
 ```
-
-npx shadcn-ui@latest add breadcrumb card checkbox dropdown-menu input label popover select separator table textarea sonner skeleton carousel
 
 - layout.tsx
 
