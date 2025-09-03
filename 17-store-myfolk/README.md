@@ -9,6 +9,9 @@ npm install prisma --save-dev
 npm install @prisma/client
 npx prisma init
 
+npx prisma db push
+npx prisma studio
+
 ### Next App
 
 ```sh
@@ -504,7 +507,7 @@ generator client {
 model TestProfile {
 id  String @id @default(uuid())
 name String
-
+}
 ```
 
 - npx prisma migrate dev --name init
